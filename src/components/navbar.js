@@ -1,8 +1,13 @@
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav
+      css={css`
+        background: red;
+      `}
+    >
       <h1>tapApp</h1>
       <ul>
         <li>Home</li>
