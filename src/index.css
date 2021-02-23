@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 
 :root {
+  --colorDark: #0d1b1e;
+  --colorPrimary: #82204a;
+  --colorLight: #eff7ff;
+  --colorMed: #a5abaf;
   --fontFamily: 'Dosis', sans-serif;
+  --maxWidth: 900px;
+  --borderRadius: 3px;
+  --transition: all 0.3s ease;
 }
 
 * {
@@ -14,4 +21,15 @@ body {
   font-family: var(--fontFamily);
   letter-spacing: 2px;
   line-height: 1.5;
+  background-color: var(--colorLight);
+  color: var(--colorDark);
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
