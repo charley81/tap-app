@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from 'react'
 
 const useFetch = url => {
   const [loading, setLoading] = useState(true)
-  const [products, setProducts] = useState([])
+  const [breweries, setBreweries] = useState([])
 
   const getProducts = useCallback(async () => {
     const response = await fetch(url)
-    const products = await response.json()
-    setProducts(products)
+    const data = await response.json()
+    setBreweries(data)
     setLoading(false)
   }, [url])
 
@@ -15,7 +15,7 @@ const useFetch = url => {
     getProducts()
   }, [url, getProducts])
 
-  return { loading, products }
+  return { loading, breweries }
 }
 
 export default useFetch
