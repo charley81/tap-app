@@ -11,21 +11,32 @@ const BreweryCard = ({ id, name, state, city }) => {
         padding: 1rem;
         border-radius: var(--borderRadius);
         box-shadow: 1px 1px 3px 1px var(--colorPrimary);
+        transition: all 0.1s ease;
 
         &:hover {
           border: 1px solid var(--colorPrimary);
           box-shadow: none;
         }
 
-        a {
+        .link {
           color: var(--colorDark);
+
+          display: flex;
+          justify-content: space-between;
+          align-item: center;
+        }
+
+        .location {
+          display: flex;
         }
       `}
     >
-      <Link to={`/brewery/${id}`}>
+      <Link to={`/brewery/${id}`} className="link">
         <h3>{name}</h3>
-        <p>City: {city}</p>
-        <p>State: {state}</p>
+        <div className="location">
+          <p>{city},</p>
+          <p> {state}</p>
+        </div>
       </Link>
     </div>
   )

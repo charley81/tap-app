@@ -21,7 +21,7 @@ const About = () => {
         aspernatur sequi natus. Deleniti cupiditate harum incidunt dolores quae
         saepe commodi numquam doloremque, ipsum expedita.
       </p>
-      <Link to="/">
+      <Link to="/" className="btn">
         <button>back home</button>
       </Link>
     </section>
