@@ -36,7 +36,7 @@ li {
 
 section {
   max-width: var(--maxWidth);
-  margin: 5rem auto 0;
+  margin: 1rem auto 0;
   padding: 1rem;
 }
 

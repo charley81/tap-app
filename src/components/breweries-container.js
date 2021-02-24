@@ -1,14 +1,13 @@
 import { useGlobalContext } from '../context/context'
+import BreweryCard from './brewery-card'
 
 const BreweriesContainer = () => {
-  const { loading, breweries } = useGlobalContext()
-
-  console.log(breweries)
+  const { breweries } = useGlobalContext()
 
   return (
     <section>
       {breweries.map(brewery => {
-        return <p key={brewery.id}>{brewery.name}</p>
+        return <BreweryCard key={brewery.id} {...brewery} />
       })}
     </section>
   )
