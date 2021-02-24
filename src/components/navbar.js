@@ -24,7 +24,7 @@ const Navbar = () => {
 
         span {
           color: var(--colorPrimary);
-          text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
+          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
         }
 
         ul {
