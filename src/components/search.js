@@ -11,14 +11,14 @@ const Search = () => {
           display: block;
           width: 100%;
           border: transparent;
-          border-bottom: 1px solid var(--colorMed);
+          border-bottom: 1px solid var(--colorPrimary);
           background: transparent;
           border-radius: var(--borderRadius);
           padding: 1rem;
           transition: var(--transition);
 
           &:hover {
-            border: 1px solid var(--colorMed);
+            border: 1px solid var(--colorPrimary);
           }
         }
       `}

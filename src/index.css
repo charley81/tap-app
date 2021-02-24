@@ -2,9 +2,9 @@
 
 :root {
   --colorDark: #0d1b1e;
-  --colorPrimary: #82204a;
-  --colorLight: #eff7ff;
-  --colorMed: #a5abaf;
+  --colorPrimary: #709fb0;
+  --colorLight: #f6f5f5;
+  --colorMed: #f6f5f5;
   --fontFamily: 'Dosis', sans-serif;
   --maxWidth: 700px;
   --borderRadius: 3px;
@@ -49,10 +49,10 @@ button {
   margin-top: 1rem;
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: var(--colorDark);
+  background-color: var(--colorPrimary);
   border-radius: var(--borderRadius);
   cursor: pointer;
-  color: white;
+  color: var(--colorDark);
   font-family: var(--fontFamily);
   font-size: 1rem;
 }

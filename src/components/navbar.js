@@ -12,6 +12,11 @@ const Navbar = () => {
 
         a {
           color: var(--colorLight);
+          transition: var(--transition);
+
+          &:hover {
+            color: var(--colorPrimary);
+          }
         }
 
         nav {
@@ -24,7 +29,6 @@ const Navbar = () => {
 
         span {
           color: var(--colorPrimary);
-          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
         }
 
         ul {
