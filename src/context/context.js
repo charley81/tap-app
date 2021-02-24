@@ -1,9 +1,12 @@
-import { useContext, useReducer, useEffect, createContext } from 'react'
+import {
+  useContext,
+  useReducer,
+  useEffect,
+  createContext,
+  useCallback,
+} from 'react'
 import reducer from './reducer'
 import useFetch from '../custom-hooks/use-fetch'
-
-// base url to fetch breweries
-const url = `https://api.openbrewerydb.org/breweries/search?query=beer`
 
 // app context
 const AppContext = createContext()
@@ -11,33 +14,36 @@ const AppContext = createContext()
 // initial state
 const initialState = {
   loading: false,
-  searchTerm: 'beer',
+  searchTerm: 'southern',
   breweries: [],
 }
+
+// base url to fetch breweries
+const url = `https://api.openbrewerydb.org/breweries/search?query=${initialState.searchTerm}`
 
 // app provider
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // fetch  initial list of breweries
-  const fetchBreweries = async () => {
+  const fetchBreweries = useCallback(async () => {
+    dispatch({ type: 'LOADING' })
+
     try {
       const response = await fetch(url)
       const data = await response.json()
-      console.log(data)
+      dispatch({ type: 'INITIAL_SEARCH', payload: data })
     } catch (error) {
       console.log(error)
     }
-  }
+  }, [state.searchTerm])
 
   useEffect(() => {
-    fetchBreweries()
-  })
+    return fetchBreweries()
+  }, [state.searchTerm, fetchBreweries])
 
   return (
-    <AppContext.Provider value="starter value!!!!!!!!!!!!!!!!!!!!">
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   )
 }
 

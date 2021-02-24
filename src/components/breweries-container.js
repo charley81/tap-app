@@ -1,7 +1,17 @@
-import React from 'react'
+import { useGlobalContext } from '../context/context'
 
 const BreweriesContainer = () => {
-  return <div>breweries container component</div>
+  const { loading, breweries } = useGlobalContext()
+
+  console.log(breweries)
+
+  return (
+    <section>
+      {breweries.map(brewery => {
+        return <p key={brewery.id}>{brewery.name}</p>
+      })}
+    </section>
+  )
 }
 
 export default BreweriesContainer

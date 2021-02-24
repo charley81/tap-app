@@ -2,6 +2,7 @@ import React from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import Search from '../components/search'
+import BreweriesContainer from '../components/breweries-container'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       `}
     >
       <Search />
+      <BreweriesContainer />
     </div>
   )
 }
