@@ -37,7 +37,6 @@ li {
 section {
   max-width: var(--maxWidth);
   margin: 1rem auto 0;
-  padding: 1rem;
 }
 
 section h3 {

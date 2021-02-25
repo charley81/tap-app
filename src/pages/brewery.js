@@ -35,10 +35,34 @@ const Brewery = () => {
   return (
     <section
       css={css`
-        .link {
-          text-align: center;
+        padding: 1rem;
+
+        .btn {
+          color: var(--colorPrimary);
           display: block;
-          color: var(--colorDark);
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          margin-bottom: 0;
+          font-size: 2rem;
+        }
+
+        span {
+          background-color: var(--colorPrimary);
+          color: var(--colorLight);
+          padding: 0.25rem;
+          border-radius: var(--borderRadius);
+        }
+
+        .location {
+          margin: 1rem 0;
+        }
+
+        .contact {
+          a {
+            display: block;
+          }
         }
       `}
     >
@@ -46,7 +70,7 @@ const Brewery = () => {
         Back Home
       </Link>
       <h3>{name}</h3>
-      <h4>{brewery_type}</h4>
+      <span>{brewery_type}</span>
       <div className="info">
         <div className="location">
           <p>{city}</p>
@@ -54,7 +78,7 @@ const Brewery = () => {
           <p>{postal_code}</p>
         </div>
         <div className="contact">
-          <a href={phone}>{phone}</a>
+          <a href={`tel:${phone}`}>{phone}</a>
           <a href={website_url}>{website_url}</a>
         </div>
       </div>

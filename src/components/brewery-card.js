@@ -7,8 +7,7 @@ const BreweryCard = ({ id, name, state, city }) => {
     <div
       css={css`
         background: var(--colorMed);
-        margin-bottom: 1rem;
-        padding: 0.25rem 0.5rem;
+        padding: 1rem;
         border-radius: var(--borderRadius);
         box-shadow: 1px 1px 3px 1px var(--colorPrimary);
         transition: all 0.1s ease;
