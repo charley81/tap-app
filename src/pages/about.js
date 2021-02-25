@@ -1,8 +1,14 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
-    <section>
+    <section
+      css={css`
+        padding: 1rem;
+      `}
+    >
       <h3>About</h3>
       <p>
         tapApp is an application that allows you to enter a zip-code and see

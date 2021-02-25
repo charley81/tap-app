@@ -10,7 +10,7 @@ const url = `https://api.openbrewerydb.org/breweries/`
 
 const Brewery = () => {
   const { id } = useParams()
-  const { loadingDispatch, getBrewery, brewery } = useGlobalContext()
+  const { loading, getBrewery, brewery } = useGlobalContext()
 
   const fetchBrewery = async () => {
     const response = await fetch(`${url}${id}`)
@@ -33,8 +33,12 @@ const Brewery = () => {
     name,
   } = brewery
 
-  if (loadingDispatch) {
+  if (loading) {
     return <Loading />
+  }
+
+  if (!brewery) {
+    return <p>No brewery to display</p>
   }
 
   return (
