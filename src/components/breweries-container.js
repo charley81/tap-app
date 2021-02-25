@@ -2,9 +2,14 @@
 import { css } from '@emotion/react'
 import { useGlobalContext } from '../context/context'
 import BreweryCard from './brewery-card'
+import Loading from './loading'
 
 const BreweriesContainer = () => {
-  const { breweries } = useGlobalContext()
+  const { breweries, loading } = useGlobalContext()
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <section

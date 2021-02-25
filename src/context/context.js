@@ -6,7 +6,6 @@ import {
   useCallback,
 } from 'react'
 import reducer from './reducer'
-import useFetch from '../custom-hooks/use-fetch'
 
 // app context
 const AppContext = createContext()
