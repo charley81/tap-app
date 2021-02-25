@@ -1,15 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useGlobalContext } from '../context/context'
 import Loading from '../components/loading'
 
+// format the phone number to look like (555) 555-5555
 const formatPhone = phoneNum => {
   let cleaned = ('', phoneNum).replace(/\D/g, '')
-
   let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
-
   if (match) {
     return '(' + match[1] + ') ' + match[2] + '-' + match[3]
   }
@@ -24,15 +23,19 @@ const Brewery = () => {
   const { id } = useParams()
   const { loading, getBrewery, brewery } = useGlobalContext()
 
-  const fetchBrewery = async () => {
-    const response = await fetch(`${url}${id}`)
-    const data = await response.json()
-    getBrewery(data)
-  }
+  const fetchBrewery = useCallback(async () => {
+    try {
+      const response = await fetch(`${url}${id}`)
+      const data = await response.json()
+      getBrewery(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }, [getBrewery, id])
 
   useEffect(() => {
     fetchBrewery()
-  }, [id])
+  }, [id, fetchBrewery])
 
   const {
     brewery_type,
