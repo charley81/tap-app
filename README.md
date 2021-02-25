@@ -4,6 +4,7 @@
 
 ## uses
 
+- react router
 - useReducer
 - useContext
 - emotion CSS

@@ -17,6 +17,12 @@ const reducer = (state, action) => {
         brewery: action.payload,
         loading: false,
       }
+    case 'SET_SEARCH':
+      return {
+        ...state,
+        searchTerm: action.payload,
+        loading: false,
+      }
     default:
       return state
   }
