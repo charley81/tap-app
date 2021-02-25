@@ -2,6 +2,7 @@
 import { css } from '@emotion/react'
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useGlobalContext } from '../context/context'
 import Loading from '../components/loading'
 
 // url to get single brewery by id
@@ -9,16 +10,16 @@ const url = `https://api.openbrewerydb.org/breweries/`
 
 const Brewery = () => {
   const { id } = useParams()
-  const [brewery, setBrewery] = useState(0)
+  const { loadingDispatch, getBrewery, brewery } = useGlobalContext()
 
-  const getBrewery = async () => {
+  const fetchBrewery = async () => {
     const response = await fetch(`${url}${id}`)
     const data = await response.json()
-    setBrewery(data)
+    getBrewery(data)
   }
 
   useEffect(() => {
-    getBrewery()
+    fetchBrewery()
   }, [id])
 
   const {
@@ -31,6 +32,10 @@ const Brewery = () => {
     website_url,
     name,
   } = brewery
+
+  if (loadingDispatch) {
+    return <Loading />
+  }
 
   return (
     <section
@@ -82,6 +87,7 @@ const Brewery = () => {
       <div className="info">
         <div className="location">
           <h4>Address</h4>
+          <p>{street}</p>
           <p>{city}</p>
           <p>{state}</p>
           <p>{postal_code}</p>

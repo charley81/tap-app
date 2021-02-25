@@ -11,6 +11,12 @@ const reducer = (state, action) => {
         breweries: action.payload,
         loading: false,
       }
+    case 'SINGLE_BREWERY':
+      return {
+        ...state,
+        brewery: action.payload,
+        loading: false,
+      }
     default:
       return state
   }

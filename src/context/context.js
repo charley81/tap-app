@@ -15,6 +15,7 @@ const initialState = {
   loading: false,
   searchTerm: 'southern',
   breweries: [],
+  brewery: '',
 }
 
 // base url to fetch breweries
@@ -24,9 +25,14 @@ const url = `https://api.openbrewerydb.org/breweries/search?query=${initialState
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  // dispatches
+  const loadingDispatch = () => dispatch({ type: 'LOADING' })
+  const getBrewery = brewery =>
+    dispatch({ type: 'SINGLE_BREWERY', payload: brewery })
+
   // fetch  initial list of breweries
   const fetchBreweries = useCallback(async () => {
-    dispatch({ type: 'LOADING' })
+    loadingDispatch()
 
     try {
       const response = await fetch(url)
@@ -42,7 +48,9 @@ const AppProvider = ({ children }) => {
   }, [state.searchTerm, fetchBreweries])
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, loadingDispatch, getBrewery }}>
+      {children}
+    </AppContext.Provider>
   )
 }
 
