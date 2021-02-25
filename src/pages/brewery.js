@@ -5,6 +5,18 @@ import { useParams, Link } from 'react-router-dom'
 import { useGlobalContext } from '../context/context'
 import Loading from '../components/loading'
 
+const formatPhone = phoneNum => {
+  let cleaned = ('', phoneNum).replace(/\D/g, '')
+
+  let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+  }
+
+  return null
+}
+
 // url to get single brewery by id
 const url = `https://api.openbrewerydb.org/breweries/`
 
@@ -100,8 +112,10 @@ const Brewery = () => {
         </div>
         <div className="contact">
           <h4>Contact</h4>
-          <a href={`tel:${phone}`}>{phone}</a>
-          <a href={website_url}>{website_url}</a>
+          <a href={`tel:${formatPhone(phone)}`}>{formatPhone(phone)}</a>
+          <a href={website_url} target="_blank" rel="noopener noreferrer">
+            {website_url}
+          </a>
           <a
             href={`http://maps.google.com/?q=${breweryAddress}`}
             target="_blank"
