@@ -33,6 +33,8 @@ const Brewery = () => {
     name,
   } = brewery
 
+  const breweryAddress = `${street}, ${city}, ${state}, ${postal_code}`
+
   if (loading) {
     return <Loading />
   }
@@ -100,6 +102,14 @@ const Brewery = () => {
           <h4>Contact</h4>
           <a href={`tel:${phone}`}>{phone}</a>
           <a href={website_url}>{website_url}</a>
+          <a
+            href={`http://maps.google.com/?q=${breweryAddress}`}
+            target="_blank"
+            aria-label="brewery directions"
+            rel="noopener noreferrer"
+          >
+            Directions
+          </a>
         </div>
       </div>
     </section>
