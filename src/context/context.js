@@ -40,7 +40,7 @@ const AppProvider = ({ children }) => {
       const data = await response.json()
       dispatch({ type: 'INITIAL_SEARCH', payload: data })
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }, [state.searchTerm])
 
