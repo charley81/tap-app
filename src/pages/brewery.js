@@ -55,6 +55,14 @@ const Brewery = () => {
           border-radius: var(--borderRadius);
         }
 
+        .info {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          justify-content: center;
+          align-items: center;
+          margin-top: 1rem;
+        }
+
         .location {
           margin: 1rem 0;
         }
@@ -73,11 +81,13 @@ const Brewery = () => {
       <span>{brewery_type}</span>
       <div className="info">
         <div className="location">
+          <h4>Address</h4>
           <p>{city}</p>
           <p>{state}</p>
           <p>{postal_code}</p>
         </div>
         <div className="contact">
+          <h4>Contact</h4>
           <a href={`tel:${phone}`}>{phone}</a>
           <a href={website_url}>{website_url}</a>
         </div>
