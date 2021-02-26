@@ -5,6 +5,11 @@ const reducer = (state, action) => {
         ...state,
         loading: true,
       }
+    case 'FETCH_DATA': {
+      return {
+        ...state,
+      }
+    }
     case 'INITIAL_SEARCH':
       return {
         ...state,
