@@ -42,6 +42,7 @@ const Search = () => {
       `}
     >
       <label htmlFor="search">
+        Search here
         <input
           type="text"
           name="search"
