@@ -55,7 +55,16 @@ const Brewery = () => {
   }
 
   if (!brewery) {
-    return <p>No brewery to display</p>
+    return (
+      <h1
+        css={css`
+          text-align: center;
+          margin-top: 5vh;
+        `}
+      >
+        No brewery to display
+      </h1>
+    )
   }
 
   return (
