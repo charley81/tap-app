@@ -11,13 +11,12 @@ const About = () => {
     >
       <h3>About</h3>
       <p>
-        tapApp is an application that allows you to enter a zip-code and see
-        what breweries are in your area. Select a brewery and get detailed
-        information including the brewery address and link to their website.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero, repellat
-        eveniet? Eum modi dolore iure totam beatae quo non! Nesciunt, dicta
-        labore! Beatae aliquam aperiam reiciendis dolor earum perferendis
-        exercitationem.
+        tapApp is an application that allows you to enter a search term and
+        search breweries. Select a brewery and get detailed information
+        including the brewery address and link to their website. Lorem ipsum,
+        dolor sit amet consectetur adipisicing elit. Vero, repellat eveniet? Eum
+        modi dolore iure totam beatae quo non! Nesciunt, dicta labore! Beatae
+        aliquam aperiam reiciendis dolor earum perferendis exercitationem.
       </p>
       <br />
       <p>
